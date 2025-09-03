@@ -59,38 +59,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+  async function loadProfile() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "sanjay";
 
-    fetch("team.json")
-      .then((res) => res.json())
-      .then((data) => {
-        if (id && data[id]) {
-          const member = data[id];
+      const response = await fetch("team.json");
+      if (!response.ok) throw new Error("Failed to load team.json");
+      const data = await response.json();
 
-          document.getElementById("profile").innerHTML = `
-            <div class="card">
-              <img src="${member.photo}" alt="${member.name}">
-              <h2>${member.name}</h2>
-              <h4>${member.designation}</h4>
-              <h5>${member.company}</h5>
-              <p><strong>Phone:</strong> ${member.phone}</p>
-              <p><strong>Email:</strong> ${member.email}</p>
-              <p><strong>Machine:</strong> ${member.machine}</p>
-              <p><strong>Location:</strong> ${member.location}</p>
-            </div>
-          `;
-        } else {
-          document.getElementById("profile").innerHTML =
-            "<p>Member not found.</p>";
-        }
-      })
-      .catch((err) => {
-        console.error("Error loading team.json:", err);
-        document.getElementById("profile").innerHTML =
-          "<p>Error loading data.</p>";
-      });
+      const member = data[id];
+      if (member) {
+        document.getElementById("profile-photo").src = member.photo;
+        document.getElementById("profile-name").textContent = member.name;
+        document.getElementById("profile-designation").textContent = member.designation;
+        document.getElementById("profile-company").textContent = member.company;
+        document.getElementById("profile-machine").textContent = member.machine;
+        document.getElementById("profile-location").textContent = member.location;
+        document.getElementById("profile-phone").href = "tel:" + member.phone;
+        document.getElementById("profile-phone").textContent = "📞 " + member.phone;
+        document.getElementById("profile-email").href = "mailto:" + member.email;
+        document.getElementById("profile-email").textContent = "✉️ " + member.email;
+      } else {
+        document.getElementById("profile-name").textContent = "Profile not found!";
+      }
+    } catch (err) {
+      console.error("Error loading profile:", err);
+      document.getElementById("profile-name").textContent = "Error loading profile.";
+    }
+  }
+
+  loadProfile();
+
+  $(document).ready(() => {
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 2000,
+      responsive: { 0: { items: 2 }, 600: { items: 4 }, 1000: { items: 6 } }
+    });
   });
 </script>
 
