@@ -1,1 +1,23 @@
-data.json
+{
+  "sanjay": {
+    "name": "Sanjay G N",
+    "designation": "Sales Manager",
+    "company": "TML South India",
+    "phone": "+91 9876543210",
+    "email": "sanjay@example.com",
+    "photo": "images/sanjay.jpg",
+    "machine": "Hydrogen Water Generator TT",
+    "location": "Bengaluru, India"
+  },
+  "colleague1": {
+    "name": "N. Srinivas Reddy",
+    "designation": "Regional Head",
+    "company": "TML",
+    "phone": "+91 9123456789",
+    "email": "srinivas@example.com",
+    "photo": "images/srinivas.jpg",
+    "machine": "Hydrogen Water Generator UTS",
+    "location": "Hyderabad, India"
+  }
+}
+
