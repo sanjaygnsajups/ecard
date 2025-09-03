@@ -9,14 +9,14 @@ body {
 
 /* ===== Header (Navbar & Title) ===== */
 .navbar {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
   font-weight: bold;
   font-size: 1.2rem;
-  color: #333;
+  color: #004d66;
 }
 
 .navbar-brand img {
@@ -25,38 +25,45 @@ body {
 }
 
 .ecard-header {
-  background: linear-gradient(90deg, #00aaff, #00ffcc);
+  background: linear-gradient(90deg, #004d66, #00bfa5);
   color: white;
-  padding: 40px 0;
+  padding: 50px 20px;
   text-align: center;
   border-radius: 10px;
 }
 
 .ecard-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .ecard-header p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 /* ===== Profile Card ===== */
 .profile-card {
-  max-width: 350px;
-  margin: -80px auto 40px;
+  max-width: 360px;
+  margin: -90px auto 50px;
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding: 35px 25px;
   text-align: center;
+  transition: transform 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
 }
 
 .profile-card img {
-  border: 5px solid #00aaff;
+  border: 5px solid #00bfa5;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   margin-bottom: 20px;
   transition: transform 0.3s;
@@ -68,55 +75,61 @@ body {
 
 .profile-card .btn {
   border-radius: 30px;
-  padding: 8px 20px;
+  padding: 10px 25px;
   font-weight: 600;
   margin: 5px;
+  transition: transform 0.2s;
+}
+
+.profile-card .btn:hover {
+  transform: scale(1.05);
 }
 
 .btn-primary {
-  background: #00aaff;
+  background: #004d66;
   border: none;
 }
 
 .btn-secondary {
-  background: #00ffcc;
+  background: #00bfa5;
   border: none;
-  color: #000;
+  color: #fff;
 }
 
 /* ===== Certifications / Slider ===== */
 .certifications {
-  background: #f0f0f0;
-  padding: 50px 0;
+  background: #eef7f6;
+  padding: 60px 0;
 }
 
 .certifications h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #004d66;
 }
 
 .certifications .item {
   display: inline-block;
-  margin: 0 10px;
-  transition: transform 0.3s;
+  margin: 0 12px;
 }
 
 .certifications .item img {
   width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .certifications .item:hover img {
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Footer ===== */
 footer {
-  background: #00aaff;
+  background: linear-gradient(90deg, #004d66, #00bfa5);
   color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: 25px 0;
   font-weight: 500;
 }
