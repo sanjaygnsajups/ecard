@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>E-Card | The Modern Living</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="images/logo.png" alt="Logo" style="height:30px; margin-right:10px;">
-      The Modern Living
+      <img src="images/default.jpg" alt="Logo" style="height:30px; margin-right:10px;"> The Modern Living
     </a>
   </div>
 </nav>
@@ -25,23 +24,24 @@
   <p>Hydrogen Water Generators</p>
 </div>
 
-<div class="profile-card text-center" id="profile">
-  <img id="profile-photo" src="images/default.jpg" alt="Profile Photo">
-  <h3 id="profile-name">Loading...</h3>
+<div class="profile-card" id="profile">
+  <img id="profile-photo" src="images/default.jpg" alt="Profile Photo" />
+  <h3 id="profile-name">Loading…</h3>
   <p id="profile-designation"></p>
   <p id="profile-company"></p>
   <p>Machine: <span id="profile-machine"></span></p>
   <p>Location: <span id="profile-location"></span></p>
-  <p>
+  <div>
     <a id="profile-phone" href="#" class="button">Call</a>
     <a id="profile-email" href="#" class="button">Email</a>
-  </p>
+  </div>
 </div>
 
 <section class="certifications">
   <div class="container">
     <h2>Worldwide Presence</h2>
     <div class="owl-carousel owl-theme">
+      <!-- Keep the Chanson images -->
       <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c83704daIndia.webp" alt="India"></div>
       <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c938f3c7USA.webp" alt="USA"></div>
       <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9cae4b6bbCanada.webp" alt="Canada"></div>
@@ -51,9 +51,7 @@
   </div>
 </section>
 
-<footer>
-  <p>© 2025 The Modern Living | All Rights Reserved</p>
-</footer>
+<footer>&copy; 2025 The Modern Living | All Rights Reserved</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -61,7 +59,7 @@
 <script>
   async function loadProfile() {
     const id = new URLSearchParams(window.location.search).get("id") || "sanjay";
-    const data = await fetch("data.json").then(res => res.json());
+    const data = await fetch("team.json").then(r => r.json());
     const p = data[id];
     if (p) {
       document.getElementById("profile-photo").src = p.photo;
@@ -78,13 +76,13 @@
   }
   loadProfile();
 
-  $(document).ready(function(){
+  $(document).ready(() => {
     $(".owl-carousel").owlCarousel({
-      loop:true,
-      margin:10,
-      autoplay:true,
-      autoplayTimeout:2000,
-      responsive:{0:{items:2},600:{items:4},1000:{items:6}}
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 2000,
+      responsive: { 0: { items: 2 }, 600: { items: 4 }, 1000: { items: 6 }}
     });
   });
 </script>
