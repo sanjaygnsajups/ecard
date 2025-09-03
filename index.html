@@ -1,22 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Digital eCard</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Card | The Modern Living</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #0056a3;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    /* Header */
+    .ecard-header {
+      background: #0056a3;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    .ecard-header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    /* Profile Card */
+    .profile-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: -40px;
+      text-align: center;
+    }
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #0056a3;
+    }
+    /* Certifications */
+    .certifications {
+      padding: 40px 0;
+      background: #fff;
+    }
+    .certifications h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0056a3;
+    }
+    .owl-carousel .item img {
+      width: 120px;
+      margin: auto;
+    }
+    /* Footer */
+    footer {
+      background: #0056a3;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <div class="ecard-container">
-    <img id="photo" class="ecard-photo" src="images/default.jpg" alt="Profile" />
-    <h2 id="name">Name</h2>
-    <p id="designation">Designation</p>
-    <p id="company">Company</p>
-    <p><a id="phone" href="#">📞 Call</a></p>
-    <p><a id="email" href="#">✉️ Email</a></p>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="Logo" style="height:30px; margin-right:10px;">
+        The Modern Living
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="ecard-header">
+    <h1>The Modern Living</h1>
+    <p>Hydrogen Water Generators</p>
   </div>
 
-  <script src="ecard.js"></script>
+  <!-- Profile -->
+  <div class="container">
+    <div class="profile-card" id="profile">
+      <img id="profile-photo" src="images/default.jpg" alt="Profile">
+      <h3 id="profile-name">Loading...</h3>
+      <p id="profile-designation"></p>
+      <p id="profile-company"></p>
+      <p><strong>Machine:</strong> <span id="profile-machine"></span></p>
+      <p><strong>Location:</strong> <span id="profile-location"></span></p>
+      <p>
+        <a id="profile-phone" href="#" class="btn btn-outline-primary btn-sm">Call</a>
+        <a id="profile-email" href="#" class="btn btn-outline-secondary btn-sm">Email</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Certifications / Worldwide Presence -->
+  <section class="certifications">
+    <div class="container">
+      <h2>Worldwide Presence</h2>
+      <div class="owl-carousel owl-theme">
+        <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c83704daIndia.webp" alt="India"></div>
+        <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c938f3c7USA.webp" alt="USA"></div>
+        <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9cae4b6bbCanada.webp" alt="Canada"></div>
+        <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9d2b83edaAustralia.webp" alt="Australia"></div>
+        <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9dbf846b8Singapore.webp" alt="Singapore"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 The Modern Living | All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    // Load profile dynamically
+    async function loadProfile() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "sanjay"; // default to Sanjay
+      const response = await fetch("data.json");
+      const data = await response.json();
+      const person = data[id];
+
+      if (person) {
+        document.getElementById("profile-photo").src = person.photo;
+        document.getElementById("profile-name").textContent = person.name;
+        document.getElementById("profile-designation").textContent = person.designation;
+        document.getElementById("profile-company").textContent = person.company;
+        document.getElementById("profile-machine").textContent = person.machine;
+        document.getElementById("profile-location").textContent = person.location;
+        document.getElementById("profile-phone").href = "tel:" + person.phone;
+        document.getElementById("profile-phone").textContent = "📞 " + person.phone;
+        document.getElementById("profile-email").href = "mailto:" + person.email;
+        document.getElementById("profile-email").textContent = "✉️ " + person.email;
+      }
+    }
+
+    loadProfile();
+
+    // Init slider
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 2000,
+      responsive:{
+        0:{ items:2 },
+        600:{ items:4 },
+        1000:{ items:6 }
+      }
+    });
+  </script>
 </body>
 </html>
-
