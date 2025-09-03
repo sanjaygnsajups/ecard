@@ -1,0 +1,26 @@
+{
+  "sanjay": {
+    "name": "Sanjay G. N",
+    "designation": "Sales Manager",
+    "company": "TML",
+    "phone": "+919876543210",
+    "email": "sanjay@example.com",
+    "photo": "images/sanjay.jpg"
+  },
+  "colleague1": {
+    "name": "N. Srinivas Reddy",
+    "designation": "Regional Manager",
+    "company": "TML",
+    "phone": "+919988776655",
+    "email": "srinivas@example.com",
+    "photo": "images/srinivas.jpg"
+  },
+  "colleague2": {
+    "name": "Amit Sharma",
+    "designation": "Assistant Manager",
+    "company": "TML",
+    "phone": "+919123456789",
+    "email": "amit@example.com",
+    "photo": "images/amit.jpg"
+  }
+}
