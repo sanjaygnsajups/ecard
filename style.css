@@ -1,51 +1,6 @@
-/* ===== Global Styles ===== */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-/* ===== Header (Navbar & Title) ===== */
-.navbar {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #004d66;
-}
-
-.navbar-brand img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.ecard-header {
-  background: linear-gradient(90deg, #004d66, #00bfa5);
-  color: white;
-  padding: 50px 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.ecard-header h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.ecard-header p {
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-
 /* ===== Profile Card ===== */
 .profile-card {
-  max-width: 360px;
+  max-width: 380px;
   margin: -90px auto 50px;
   background: #fff;
   border-radius: 20px;
@@ -73,6 +28,34 @@ body {
   transform: scale(1.05);
 }
 
+.profile-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #004d66;
+}
+
+.profile-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Inline row for Machine and Location */
+.profile-card .info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  font-weight: 500;
+  color: #004d66;
+}
+
+.profile-card .info-row span {
+  font-weight: 400;
+  color: #333;
+}
+
+/* Buttons */
 .profile-card .btn {
   border-radius: 30px;
   padding: 10px 25px;
@@ -94,42 +77,4 @@ body {
   background: #00bfa5;
   border: none;
   color: #fff;
-}
-
-/* ===== Certifications / Slider ===== */
-.certifications {
-  background: #eef7f6;
-  padding: 60px 0;
-}
-
-.certifications h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #004d66;
-}
-
-.certifications .item {
-  display: inline-block;
-  margin: 0 12px;
-}
-
-.certifications .item img {
-  width: 100%;
-  border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.certifications .item:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== Footer ===== */
-footer {
-  background: linear-gradient(90deg, #004d66, #00bfa5);
-  color: white;
-  text-align: center;
-  padding: 25px 0;
-  font-weight: 500;
 }
