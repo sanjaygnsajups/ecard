@@ -105,5 +105,23 @@
     });
   });
 </script>
+  <script>
+  async function loadProfile() {
+    try {
+      const id = /*...*/;
+      const response = await fetch("team.json");
+      console.log("team.json fetch response:", response);
+      const data = await response.json();
+      console.log("Loaded data:", data);
+      const p = data[id];
+      console.log("Profile data for id:", id, p);
+      // ... rest of the logic
+    } catch (err) {
+      console.error("Error loading profile:", err);
+      document.getElementById("profile-name").textContent = "Error loading profile.";
+    }
+  }
+  loadProfile();
+</script>
 </body>
 </html>
