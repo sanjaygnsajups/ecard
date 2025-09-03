@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My eCard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h2 id="person-name">Name Here</h2>
+  <p id="person-designation">Designation</p>
+  <p id="person-company">Company</p>
+  <img id="person-photo" src="images/default.jpg" alt="Profile Photo" width="150">
+  <p id="person-machine">Machine Info</p>
+  <p id="person-phone">Phone</p>
+  <p id="person-email">Email</p>
+  <p id="person-location">Location</p>
+
+  <script>
+    async function loadData() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "sanjay"; // default profile
+      
+      const response = await fetch("data.json");
+      const data = await response.json();
+      const person = data[id];
+
+      if (person) {
+        document.getElementById("person-name").textContent = person.name;
+        document.getElementById("person-designation").textContent = person.designation;
+        document.getElementById("person-company").textContent = person.company;
+        document.getElementById("person-photo").src = person.photo;
+        document.getElementById("person-machine").textContent = person.machine;
+        document.getElementById("person-phone").textContent = person.phone;
+        document.getElementById("person-email").textContent = person.email;
+        document.getElementById("person-location").textContent = person.location;
+      }
+    }
+    loadData();
+  </script>
+</body>
+</html>
