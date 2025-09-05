@@ -3,43 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>E-Card | The Modern Living</title>
+  <title>E-Card | Ion Exchange</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Profile Card Hover Effect */
-    .profile-card:hover {
+    /* Hover Effects */
+    .profile-card:hover, .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
     }
 
-    /* Product Card Hover Effect */
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-
-    /* Smooth fade-in animation */
-    .fade-in {
+    /* Fade/Slide Animations */
+    .fade-slide {
       opacity: 0;
-      animation: fadeInAnim 1s forwards;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .fade-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @keyframes fadeInAnim {
-      to { opacity: 1; }
-    }
-
-    /* Mobile friendly adjustments */
+    /* Mobile adjustments */
     @media (max-width: 768px) {
-      .profile-card, .card {
-        width: 90% !important;
-        margin: 0 auto;
-      }
+      .profile-card, .card { width: 90% !important; margin: 0 auto; }
     }
+
+    /* Floating WhatsApp */
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-10px);} 60%{transform:translateY(-5px);} }
   </style>
 </head>
 <body>
@@ -47,18 +42,18 @@
 <nav class="navbar navbar-expand-lg bg-light shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="images/default.jpg" alt="Logo" style="height:30px; margin-right:10px;"> The Modern Living
+      <img src="images/default.jpg" alt="Logo" style="height:30px; margin-right:10px;"> Ion Exchange
     </a>
   </div>
 </nav>
 
-<div class="ecard-header text-center my-4 fade-in">
-  <h1>The Modern Living</h1>
+<div class="ecard-header text-center my-4 fade-slide">
+  <h1>Ion Exchange India Limited</h1>
   <p>Hydrogen Water Generators</p>
 </div>
 
 <!-- Profile Card -->
-<div class="profile-card text-center p-3 mb-5 fade-in" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<div class="profile-card text-center p-3 mb-5 fade-slide" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <img id="profile-photo" src="images/default.jpg" alt="Profile Photo" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
   <h3 id="profile-name">Loading…</h3>
   <p id="profile-designation"></p>
@@ -72,48 +67,71 @@
 </div>
 
 <!-- Products Section -->
-<section class="products my-5 fade-in" id="products-section">
+<section class="products my-5" id="products-section">
   <div class="container">
-    <h2 class="text-center mb-4">Our Products</h2>
+    <h2 class="text-center mb-4 fade-slide">Our Products</h2>
     <div class="row justify-content-center" id="products-container">
-      <!-- Products will load dynamically here -->
+      <!-- Products loaded dynamically -->
     </div>
   </div>
 </section>
 
-<!-- Certifications / Presence -->
-<section class="certifications my-5 fade-in">
+<!-- Certificates Section -->
+<section class="certificates my-5" id="certificates-section">
   <div class="container">
-    <h2 class="text-center mb-4">Worldwide Presence</h2>
-    <div class="owl-carousel owl-theme">
-      <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c83704daIndia.webp" alt="India"></div>
-      <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9c938f3c7USA.webp" alt="USA"></div>
-      <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9cae4b6bbCanada.webp" alt="Canada"></div>
-      <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9d2b83edaAustralia.webp" alt="Australia"></div>
-      <div class="item"><img src="https://chansonqualitywater.com/public/upload/home/client/630c9dbf846b8Singapore.webp" alt="Singapore"></div>
+    <h2 class="text-center mb-4 fade-slide">Our Certificates</h2>
+    <div class="row justify-content-center" id="certificates-container">
+      <!-- Certificates loaded dynamically -->
     </div>
   </div>
 </section>
 
-<footer class="text-center py-3 bg-light fade-in">
-  &copy; 2025 The Modern Living | All Rights Reserved
+<!-- Worldwide Presence -->
+<section class="certifications my-5" id="presence-section">
+  <div class="container">
+    <h2 class="text-center mb-4 fade-slide">Worldwide Presence</h2>
+    <div class="owl-carousel owl-theme">
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Indonesia.svg" alt="Indonesia"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Malaysia.svg" alt="Malaysia"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg" alt="Singapore"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg" alt="Thailand"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Sri_Lanka.svg" alt="Sri Lanka"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_East_Africa.svg" alt="East Africa"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_South_Africa.svg" alt="South Africa"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Portugal.svg" alt="Portugal"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" alt="India"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Saudi_Arabia.svg" alt="Saudi Arabia"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Flag_of_Oman.svg" alt="Oman"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_UAE.svg" alt="UAE"></div>
+      <div class="item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_the_United_States.svg" alt="North America"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center py-3 bg-light fade-slide">
+  &copy; 2025 Ion Exchange India Limited | All Rights Reserved
 </footer>
+
+<!-- Floating WhatsApp -->
+<a href="#" target="_blank" class="whatsapp-float" id="floating-whatsapp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:50px;height:50px;">
+</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <script>
-  // Load Profile
+  let currentMemberPhone = "";
+
+  // Load Team Profile
   async function loadProfile() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "sanjay";
     try {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id") || "sanjay";
-
       const response = await fetch("team.json");
-      if (!response.ok) throw new Error("Failed to load team.json");
       const data = await response.json();
-
       const member = data[id];
       if (member) {
         document.getElementById("profile-photo").src = member.photo;
@@ -126,31 +144,24 @@
         document.getElementById("profile-phone").textContent = "📞 " + member.phone;
         document.getElementById("profile-email").href = "mailto:" + member.email;
         document.getElementById("profile-email").textContent = "✉️ " + member.email;
-      } else {
-        document.getElementById("profile-name").textContent = "Profile not found!";
+
+        currentMemberPhone = member.phone.replace(/\D/g,'');
+        document.getElementById("floating-whatsapp").href = `https://wa.me/${currentMemberPhone}`;
       }
-    } catch (err) {
-      console.error("Error loading profile:", err);
-      document.getElementById("profile-name").textContent = "Error loading profile.";
-    }
+    } catch (err) { console.error(err); }
   }
 
-  // Load Products Dynamically
+  // Load Products
   async function loadProducts() {
     try {
       const response = await fetch("products.json");
-      if (!response.ok) throw new Error("Failed to load products.json");
       const products = await response.json();
-
       const container = document.getElementById("products-container");
       container.innerHTML = "";
-
       for (const key in products) {
         const product = products[key];
-
         const col = document.createElement("div");
-        col.className = "col-md-4 mb-4";
-
+        col.className = "col-md-4 mb-4 fade-slide";
         col.innerHTML = `
           <div class="card h-100 shadow-sm">
             <img src="${product.image}" class="card-img-top" alt="${product.name}">
@@ -158,66 +169,56 @@
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
               <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-              <a href="https://wa.me/${product.whatsapp}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+              <a href="https://wa.me/${currentMemberPhone}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
             </div>
           </div>
         `;
-
         container.appendChild(col);
       }
-    } catch (err) {
-      console.error("Error loading products:", err);
-      document.getElementById("products-container").textContent = "Error loading products.";
-    }
+    } catch (err) { console.error(err); }
   }
 
-  // Initialize everything
-  loadProfile();
-  loadProducts();
+  // Load Certificates
+  async function loadCertificates() {
+    try {
+      const response = await fetch("certificates.json");
+      const certs = await response.json();
+      const container = document.getElementById("certificates-container");
+      container.innerHTML = "";
+      for (const key in certs) {
+        const cert = certs[key];
+        const col = document.createElement("div");
+        col.className = "col-md-3 col-6 mb-4 fade-slide text-center";
+        col.innerHTML = `<img src="${cert.image}" alt="${cert.name}" class="img-fluid" style="border-radius:8px;"><p>${cert.name}</p>`;
+        container.appendChild(col);
+      }
+    } catch(err) { console.error(err); }
+  }
 
-  // Owl Carousel
+  // Scroll-trigger animation
+  function scrollAnimate() {
+    const elements = document.querySelectorAll('.fade-slide');
+    const triggerBottom = window.innerHeight * 0.85;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < triggerBottom){ el.classList.add('visible'); }
+    });
+  }
+
+  loadProfile().then(() => { loadProducts(); loadCertificates(); });
+  window.addEventListener('scroll', scrollAnimate);
+  window.addEventListener('load', scrollAnimate);
+
   $(document).ready(() => {
     $(".owl-carousel").owlCarousel({
       loop: true,
       margin: 10,
       autoplay: true,
       autoplayTimeout: 2000,
-      responsive: { 0: { items: 2 }, 600: { items: 4 }, 1000: { items: 6 } }
+      responsive: {0:{items:2},600:{items:4},1000:{items:6}}
     });
   });
 </script>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/917670992181" target="_blank" class="whatsapp-float">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:50px;height:50px;">
-</a>
-
-<style>
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-  }
-</style>
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
-
-  
 </body>
 </html>
