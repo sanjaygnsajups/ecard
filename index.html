@@ -4,34 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>E-Card | The Modern Living</title>
-
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-  
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg shadow-sm">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="assets/logo.jpg" alt="The Modern Living"> The Modern Living
+      <img src="assets/logo.jpg" alt="The Modern Living" style="height:50px;"> The Modern Living
     </a>
   </div>
 </nav>
 
-<!-- BANNER IMAGE -->
-<div class="text-center my-4">
-  <img src="assets/banner-hydrogen.jpg" alt="Hydrogen Water Generators" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: cover;">
-</div>
+<!-- Banner Section -->
+<section class="banner text-center" style="background: url('assets/banner-hydrogen.jpg') center/cover no-repeat; padding: 100px 0;">
+  <h1 class="text-white">Hydrogen Water Generators</h1>
+</section>
 
-<!-- PROFILE CARD -->
-<div class="profile-card text-center mb-5 fade-in" id="profile" style="max-width: 350px; margin: 0 auto;">
-  <img id="profile-photo" src="assets/default.jpg" alt="Profile Photo" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
+<!-- Profile Card -->
+<div class="profile-card text-center p-3 mb-5 fade-in" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background:#fff;">
+  <img id="profile-photo" src="images/default.jpg" alt="Profile Photo" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
   <h3 id="profile-name">Loading…</h3>
   <p id="profile-designation"></p>
   <p id="profile-company"></p>
@@ -43,177 +37,109 @@
   </div>
 </div>
 
-<!-- ABOUT MODERN LIVING -->
-<div class="container mb-5 text-center">
-  <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#aboutModal">About The Modern Living</a>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="aboutModalLabel">About The Modern Living</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>TML is a Venture of Ion Exchange India Ltd.</p>
-        <p>Ion Exchange India Ltd, a pioneer of water treatment in India with a legacy spanning over five decades is today a premier company in water and environment management with a global presence. Formed in 1964, as a subsidiary of the Permutit Company of UK, Ion Exchange became a wholly Indian company in 1985 when Permutit divested their holding.</p>
-        <p>A leading solutions provider, one of very few companies worldwide with complete range of solutions for Water, Wastewater Treatment, Solid Waste Management and Waste to Energy. Ion Exchange tech-driven products and services cater to industries, institutions, municipalities, homes and communities both urban and rural.</p>
-        <p>With sales, production and service footprints across the globe, Ion Exchange serves its markets with a sustained focus on customer satisfaction, technological innovation and dedicated service.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PRODUCTS SECTION -->
+<!-- Products Section -->
 <section class="products my-5 fade-in" id="products-section">
   <div class="container">
     <h2 class="text-center mb-4">Our Products</h2>
     <div class="row justify-content-center" id="products-container">
-      <!-- Products loaded dynamically -->
+      <!-- Products will load dynamically -->
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATES -->
+<!-- Certificates Section -->
 <section class="certificates my-5 fade-in">
   <div class="container">
-    <h2 class="text-center mb-4">Certificates</h2>
+    <h2 class="text-center mb-4">Certifications</h2>
     <div class="row justify-content-center" id="certificates-container">
       <!-- Certificates loaded dynamically -->
     </div>
   </div>
 </section>
 
-<!-- WORLDWIDE PRESENCE -->
-<section class="scrolling-countries mb-5">
-  <div class="container text-center">
-    <img src="assets/ion-exchange-logo.png" alt="Ion Exchange Logo" style="height:40px; vertical-align: middle; margin-right:10px;">
-    <span>Indonesia</span>
-    <span>Malaysia</span>
-    <span>Nepal</span>
-    <span>Singapore</span>
-    <span>Thailand</span>
-    <span>Sri Lanka</span>
-    <span>East Africa</span>
-    <span>South Africa</span>
-    <span>Portugal</span>
-    <span>India</span>
-    <span>Saudi Arabia</span>
-    <span>Oman</span>
-    <span>UAE</span>
-    <span>North America</span>
+<!-- Worldwide Presence -->
+<section class="presence my-5 fade-in text-center">
+  <img src="assets/ion-exchange-logo.png" alt="Ion Exchange Logo" style="height:50px; margin-bottom:10px;">
+  <h3>Worldwide Presence of Ion Exchange India Limited</h3>
+  <div class="marquee text-primary" style="overflow:hidden; white-space:nowrap;">
+    Indonesia &nbsp;&nbsp; Malaysia &nbsp;&nbsp; Nepal &nbsp;&nbsp; Singapore &nbsp;&nbsp; Thailand &nbsp;&nbsp; Srilanka &nbsp;&nbsp; East Africa &nbsp;&nbsp; South Africa &nbsp;&nbsp; Portugal &nbsp;&nbsp; India &nbsp;&nbsp; Saudi Arabia &nbsp;&nbsp; Oman &nbsp;&nbsp; UAE &nbsp;&nbsp; North America
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center fade-in">
-  <img src="assets/ion-exchange-logo.png" alt="Ion Exchange Logo">
-  <p>&copy; 2025 The Modern Living | All Rights Reserved</p>
+<!-- Footer -->
+<footer class="text-center py-3 bg-light">
+  &copy; 2025 The Modern Living | All Rights Reserved
 </footer>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <script>
-  window.currentWhatsapp = "";
-
-  async function loadProfile() {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id") || "sanjay";
-
-      const response = await fetch("team.json");
-      const data = await response.json();
-      const member = data[id];
-      if (member) {
-        document.getElementById("profile-photo").src = member.photo;
-        document.getElementById("profile-name").textContent = member.name;
-        document.getElementById("profile-designation").textContent = member.designation;
-        document.getElementById("profile-company").textContent = member.company;
-        document.getElementById("profile-machine").textContent = member.machine;
-        document.getElementById("profile-location").textContent = member.location;
-        document.getElementById("profile-phone").href = "tel:" + member.phone;
-        document.getElementById("profile-phone").textContent = "📞 " + member.phone;
-        document.getElementById("profile-email").href = "mailto:" + member.email;
-        document.getElementById("profile-email").textContent = "✉️ " + member.email;
-
-        window.currentWhatsapp = member.whatsapp;
-      }
-    } catch (err) {
-      console.error(err);
-    }
+async function loadProfile() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id") || "sanjay";
+  const response = await fetch("team.json");
+  const data = await response.json();
+  const member = data[id];
+  if(member){
+    document.getElementById("profile-photo").src = member.photo;
+    document.getElementById("profile-name").textContent = member.name;
+    document.getElementById("profile-designation").textContent = member.designation;
+    document.getElementById("profile-company").textContent = member.company;
+    document.getElementById("profile-machine").textContent = member.machine;
+    document.getElementById("profile-location").textContent = member.location;
+    document.getElementById("profile-phone").href = "tel:" + member.phone;
+    document.getElementById("profile-phone").textContent = "📞 " + member.phone;
+    document.getElementById("profile-email").href = "mailto:" + member.email;
+    document.getElementById("profile-email").textContent = "✉️ " + member.email;
+    return member.whatsapp;
   }
+  return "";
+}
 
-  async function loadProducts() {
-    try {
-      const res = await fetch("products.json");
-      const products = await res.json();
-      const container = document.getElementById("products-container");
-      container.innerHTML = "";
-      for (const key in products) {
-        const product = products[key];
-        const col = document.createElement("div");
-        col.className = "col-md-4 mb-4";
-        col.innerHTML = `
-          <div class="card h-100 shadow-sm">
-            <img src="${product.image}" class="card-img-top" alt="${product.name}">
-            <div class="card-body text-center">
-              <h5 class="card-title">${product.name}</h5>
-              <p class="card-text">${product.description}</p>
-              <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-              <a href="https://wa.me/${window.currentWhatsapp}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
-            </div>
-          </div>
-        `;
-        container.appendChild(col);
-      }
-    } catch (err) { console.error(err); }
+async function loadProducts(whatsappNumber){
+  const response = await fetch("products.json");
+  const products = await response.json();
+  const container = document.getElementById("products-container");
+  container.innerHTML = "";
+  for(const key in products){
+    const p = products[key];
+    const card = document.createElement("div");
+    card.className = "col-md-4 mb-4";
+    card.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${p.image}" class="card-img-top" alt="${p.name}">
+        <div class="card-body text-center">
+          <h5 class="card-title">${p.name}</h5>
+          <p class="card-text">${p.description}</p>
+          <a href="${p.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
+          <a href="https://wa.me/${whatsappNumber}?text=I'm interested in ${encodeURIComponent(p.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
   }
+}
 
-  async function loadCertificates() {
-    try {
-      const res = await fetch("certificates.json");
-      const data = await res.json();
-      const container = document.getElementById("certificates-container");
-      container.innerHTML = "";
-      data.certificates.forEach(cert => {
-        const col = document.createElement("div");
-        col.className = "col-md-4 mb-4 text-center";
-        col.innerHTML = `
-          <div class="card h-100 shadow-sm p-2">
-            <img src="${cert.image}" alt="${cert.name}" class="img-fluid">
-            <div class="card-body">
-              <h6 class="card-title">${cert.name}</h6>
-            </div>
-          </div>
-        `;
-        container.appendChild(col);
-      });
-    } catch (err) { console.error(err); }
+async function loadCertificates(){
+  const response = await fetch("certificates.json");
+  const certs = await response.json();
+  const container = document.getElementById("certificates-container");
+  container.innerHTML = "";
+  for(const key in certs){
+    const c = certs[key];
+    const div = document.createElement("div");
+    div.className = "col-md-4 mb-4 text-center";
+    div.innerHTML = `<img src="${c.image}" alt="${c.name}" class="img-fluid" style="max-height:150px;">`;
+    container.appendChild(div);
   }
+}
 
-  loadProfile().then(() => { loadProducts(); });
-  loadCertificates();
-
-  $(document).ready(() => {
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 10,
-      autoplay: true,
-      autoplayTimeout: 2000,
-      responsive: { 0: { items: 2 }, 600: { items: 4 }, 1000: { items: 6 } }
-    });
-  });
+(async function init(){
+  const whatsappNumber = await loadProfile();
+  await loadProducts(whatsappNumber);
+  await loadCertificates();
+})();
 </script>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/917670992181" target="_blank" class="whatsapp-float">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:50px;height:50px;">
-</a>
-
 </body>
 </html>
