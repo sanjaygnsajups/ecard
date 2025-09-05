@@ -8,10 +8,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Profile Card Hover Effect */
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    /* Product Card Hover Effect */
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    /* Smooth fade-in animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInAnim 1s forwards;
+    }
+
+    @keyframes fadeInAnim {
+      to { opacity: 1; }
+    }
+
+    /* Mobile friendly adjustments */
+    @media (max-width: 768px) {
+      .profile-card, .card {
+        width: 90% !important;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="images/default.jpg" alt="Logo" style="height:30px; margin-right:10px;"> The Modern Living
@@ -19,12 +52,13 @@
   </div>
 </nav>
 
-<div class="ecard-header text-center my-4">
+<div class="ecard-header text-center my-4 fade-in">
   <h1>The Modern Living</h1>
   <p>Hydrogen Water Generators</p>
 </div>
 
-<div class="profile-card text-center p-3" id="profile">
+<!-- Profile Card -->
+<div class="profile-card text-center p-3 mb-5 fade-in" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <img id="profile-photo" src="images/default.jpg" alt="Profile Photo" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
   <h3 id="profile-name">Loading…</h3>
   <p id="profile-designation"></p>
@@ -37,49 +71,18 @@
   </div>
 </div>
 
-<section class="products my-5" id="products-section">
+<!-- Products Section -->
+<section class="products my-5 fade-in" id="products-section">
   <div class="container">
     <h2 class="text-center mb-4">Our Products</h2>
     <div class="row justify-content-center" id="products-container">
-      <!-- Products will load here dynamically -->
+      <!-- Products will load dynamically here -->
     </div>
   </div>
 </section>
 
-      
-      <!-- Product Card 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="assets/hydroace-tt.jpg" class="card-img-top" alt="Hydroace TT">
-          <div class="card-body text-center">
-            <h5 class="card-title">Hydroace TT</h5>
-            <p class="card-text">Premium hydrogen water generator with advanced purification system. Ideal for home & wellness enthusiasts.</p>
-            <a href="docs/HydroaceTT.pdf" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-            <a href="https://wa.me/917670992181?text=I'm%20interested%20in%20Hydroace%20TT" class="btn btn-success btn-sm m-1">Enquire Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product Card 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="assets/hydroace-uts.jpg" class="card-img-top" alt="Hydroace UTS">
-          <div class="card-body text-center">
-            <h5 class="card-title">Hydroace UTS</h5>
-            <p class="card-text">Compact and efficient hydrogen water generator. Perfect for office or travel use.</p>
-            <a href="docs/HydroaceUTS.pdf" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-            <a href="https://wa.me/917670992181?text=I'm%20interested%20in%20Hydroace%20UTS" class="btn btn-success btn-sm m-1">Enquire Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- Product Section End -->
-
-  
-<section class="certifications my-5">
+<!-- Certifications / Presence -->
+<section class="certifications my-5 fade-in">
   <div class="container">
     <h2 class="text-center mb-4">Worldwide Presence</h2>
     <div class="owl-carousel owl-theme">
@@ -92,7 +95,7 @@
   </div>
 </section>
 
-<footer class="text-center py-3 bg-light">
+<footer class="text-center py-3 bg-light fade-in">
   &copy; 2025 The Modern Living | All Rights Reserved
 </footer>
 
@@ -101,6 +104,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 <script>
+  // Load Profile
   async function loadProfile() {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -131,46 +135,47 @@
     }
   }
 
-  loadProfile();
-
+  // Load Products Dynamically
   async function loadProducts() {
-  try {
-    const response = await fetch("products.json");
-    if (!response.ok) throw new Error("Failed to load products.json");
-    const products = await response.json();
+    try {
+      const response = await fetch("products.json");
+      if (!response.ok) throw new Error("Failed to load products.json");
+      const products = await response.json();
 
-    const container = document.getElementById("products-container");
-    container.innerHTML = "";
+      const container = document.getElementById("products-container");
+      container.innerHTML = "";
 
-    for (const key in products) {
-      const product = products[key];
+      for (const key in products) {
+        const product = products[key];
 
-      const col = document.createElement("div");
-      col.className = "col-md-4 mb-4";
+        const col = document.createElement("div");
+        col.className = "col-md-4 mb-4";
 
-      col.innerHTML = `
-        <div class="card h-100 shadow-sm">
-          <img src="${product.image}" class="card-img-top" alt="${product.name}">
-          <div class="card-body text-center">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.description}</p>
-            <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-            <a href="https://wa.me/${product.whatsapp}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+        col.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body text-center">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
+              <a href="https://wa.me/${product.whatsapp}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+            </div>
           </div>
-        </div>
-      `;
+        `;
 
-      container.appendChild(col);
+        container.appendChild(col);
+      }
+    } catch (err) {
+      console.error("Error loading products:", err);
+      document.getElementById("products-container").textContent = "Error loading products.";
     }
-  } catch (err) {
-    console.error("Error loading products:", err);
-    document.getElementById("products-container").textContent = "Error loading products.";
   }
-}
 
-loadProducts();
+  // Initialize everything
+  loadProfile();
+  loadProducts();
 
-
+  // Owl Carousel
   $(document).ready(() => {
     $(".owl-carousel").owlCarousel({
       loop: true,
