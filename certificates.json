@@ -1,0 +1,10 @@
+{
+  "certificates": [
+    { "name": "Indian Institute of Chemical Technology", "image": "assets/Indian Institute of Chemical Technology.png" },
+    { "name": "ISO", "image": "assets/ISO.png" },
+    { "name": "Indian Institute of Science", "image": "assets/Indian Institute of Science.png" },
+    { "name": "IAPMO", "image": "assets/IAPMO.png" },
+    { "name": "IIT Bombay", "image": "assets/IIT Bombay.png" },
+    { "name": "NCL", "image": "assets/NCL.png" }
+  ]
+}
