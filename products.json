@@ -1,0 +1,16 @@
+{
+  "hydroaceTT": {
+    "name": "Hydroace TT",
+    "description": "Premium hydrogen water generator with advanced purification system. Ideal for home & wellness enthusiasts.",
+    "image": "assets/hydroace-tt.jpg",
+    "brochure": "docs/HydroaceTT.pdf",
+    "whatsapp": "+917670992181"
+  },
+  "hydroaceUTS": {
+    "name": "Hydroace UTS",
+    "description": "Compact and efficient hydrogen water generator. Perfect for office or travel use.",
+    "image": "assets/hydroace-uts.jpg",
+    "brochure": "docs/HydroaceUTS.pdf",
+    "whatsapp": "+917670992181"
+  }
+}
