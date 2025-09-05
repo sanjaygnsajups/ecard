@@ -133,6 +133,44 @@
 
   loadProfile();
 
+  async function loadProducts() {
+  try {
+    const response = await fetch("products.json");
+    if (!response.ok) throw new Error("Failed to load products.json");
+    const products = await response.json();
+
+    const container = document.getElementById("products-container");
+    container.innerHTML = "";
+
+    for (const key in products) {
+      const product = products[key];
+
+      const col = document.createElement("div");
+      col.className = "col-md-4 mb-4";
+
+      col.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <img src="${product.image}" class="card-img-top" alt="${product.name}">
+          <div class="card-body text-center">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
+            <a href="https://wa.me/${product.whatsapp}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(col);
+    }
+  } catch (err) {
+    console.error("Error loading products:", err);
+    document.getElementById("products-container").textContent = "Error loading products.";
+  }
+}
+
+loadProducts();
+
+
   $(document).ready(() => {
     $(".owl-carousel").owlCarousel({
       loop: true,
