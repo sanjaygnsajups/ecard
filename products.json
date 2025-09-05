@@ -4,13 +4,13 @@
     "description": "Compact and efficient hydrogen water generator.",
     "image": "assets/hydroace-tt.jpg",
     "brochure": "docs/HydroaceTT.pdf",
-    "whatsapp": ""  // dynamically loaded from team.json
+    "whatsapp": ""
   },
   "hydroaceUTS": {
     "name": "Hydroace UTS",
     "description": "Advanced hydrogen water generator for offices.",
     "image": "assets/hydroace-uts.jpg",
     "brochure": "docs/HydroaceUTS.pdf",
-    "whatsapp": ""  // dynamically loaded from team.json
+    "whatsapp": ""
   }
 }
