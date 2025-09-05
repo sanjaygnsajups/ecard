@@ -9,6 +9,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Background Image with Shading */
+    body {
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      font-family: 'Arial', sans-serif;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.4); /* shading */
+      z-index: -1;
+    }
+
+    /* Navbar Logo */
+    .navbar-brand img {
+      height:60px;
+      margin-right:15px;
+    }
+    .navbar-brand span {
+      font-size:1.5rem;
+      font-weight:bold;
+      color:#0072CE;
+    }
+
     /* Hover Effects */
     .profile-card:hover, .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; }
 
@@ -19,7 +45,6 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .profile-card, .card { width: 90% !important; margin: 0 auto; }
-      .navbar-brand img { height:40px !important; }
     }
 
     /* Floating WhatsApp */
@@ -29,26 +54,49 @@
     /* Certificate hover zoom */
     #certificates-container img { transition: transform 0.3s ease; }
     #certificates-container img:hover { transform: scale(1.1); }
+
+    /* Scrolling Countries Banner */
+    .scrolling-countries {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      background: rgba(255,255,255,0.1);
+      font-weight: bold;
+    }
+    .countries-track {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollCountries 25s linear infinite;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    @keyframes scrollCountries { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
   </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-light shadow-sm">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="images/default.jpg" alt="Logo" style="height:50px; margin-right:10px;">
-      <strong>The Modern Living</strong>
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="images/tml-logo.png" alt="The Modern Living">
+      <span>The Modern Living</span>
     </a>
   </div>
 </nav>
 
+<!-- Header -->
 <div class="ecard-header text-center my-4 fade-slide">
   <h1>The Modern Living</h1>
   <p>Hydrogen Water Generators</p>
 </div>
 
 <!-- Profile Card -->
-<div class="profile-card text-center p-3 mb-5 fade-slide" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<div class="profile-card text-center p-3 mb-5 fade-slide" id="profile" style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: rgba(255,255,255,0.85);">
   <img id="profile-photo" src="images/default.jpg" alt="Profile Photo" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
   <h3 id="profile-name">Loading…</h3>
   <p id="profile-designation"></p>
@@ -62,9 +110,9 @@
 </div>
 
 <!-- Products Section -->
-<section class="products my-5" id="products-section">
+<section class="products my-5 fade-slide" id="products-section">
   <div class="container">
-    <h2 class="text-center mb-4 fade-slide">Our Products</h2>
+    <h2 class="text-center mb-4">Our Products</h2>
     <div class="row justify-content-center" id="products-container"></div>
   </div>
 </section>
@@ -102,17 +150,22 @@
 </div>
 
 <!-- Certificates Section -->
-<section class="certificates my-5" id="certificates-section">
+<section class="certificates my-5 fade-slide" id="certificates-section">
   <div class="container">
-    <h2 class="text-center mb-4 fade-slide">Our Certificates</h2>
+    <h2 class="text-center mb-4">Our Certificates</h2>
     <div class="row justify-content-center" id="certificates-container"></div>
   </div>
 </section>
 
-<!-- Worldwide Presence -->
-<section class="certifications my-5 fade-slide">
+<!-- Worldwide Presence Section -->
+<section class="worldwide my-5 fade-slide">
   <div class="container text-center">
-    <h2>Worldwide Presence of Ion Exchange India Ltd <img src="images/ion-exchange-logo.png" alt="Ion Exchange" style="height:40px; vertical-align:middle; margin-left:10px;"></h2>
+    <h2>Worldwide Presence of Ion Exchange India Ltd <img src="images/ion-exchange-logo.png" alt="Ion Exchange" style="height:50px; vertical-align:middle; margin-left:10px;"></h2>
+    <div class="scrolling-countries mt-3">
+      <div class="countries-track">
+        Indonesia • Malaysia • Nepal • Singapore • Thailand • Sri Lanka • East Africa • South Africa • Portugal • India • Saudi Arabia • Oman • UAE • North America
+      </div>
+    </div>
   </div>
 </section>
 
@@ -151,11 +204,10 @@
         document.getElementById("profile-phone").textContent = "📞 " + member.phone;
         document.getElementById("profile-email").href = "mailto:" + member.email;
         document.getElementById("profile-email").textContent = "✉️ " + member.email;
-
-        currentMemberPhone = member.phone.replace(/\D/g,'');
-        document.getElementById("floating-whatsapp").href = `https://wa.me/${currentMemberPhone}`;
+        currentMemberPhone = member.phone.replace(/\D/g,''); // for WhatsApp links
+        document.getElementById("floating-whatsapp").href = "https://wa.me/" + currentMemberPhone;
       }
-    } catch (err) { console.error(err); }
+    } catch(err){ console.error(err); }
   }
 
   // Load Products
@@ -165,7 +217,7 @@
       const products = await response.json();
       const container = document.getElementById("products-container");
       container.innerHTML = "";
-      for (const key in products) {
+      for(const key in products){
         const product = products[key];
         const col = document.createElement("div");
         col.className = "col-md-4 mb-4 fade-slide";
@@ -182,7 +234,7 @@
         `;
         container.appendChild(col);
       }
-    } catch (err) { console.error(err); }
+    } catch(err){ console.error(err); }
   }
 
   // Load Certificates
@@ -192,27 +244,26 @@
       const certificates = await response.json();
       const container = document.getElementById("certificates-container");
       container.innerHTML = "";
-      for (const key in certificates) {
+      for(const key in certificates){
         const cert = certificates[key];
         const col = document.createElement("div");
         col.className = "col-md-3 mb-4 fade-slide text-center";
         col.innerHTML = `<img src="${cert.image}" class="img-fluid rounded shadow-sm" alt="${cert.name}">`;
         container.appendChild(col);
       }
-    } catch (err) { console.error(err); }
+    } catch(err){ console.error(err); }
   }
 
   // Animate fade-slide on scroll
-  function handleScrollAnimations() {
-    const elements = document.querySelectorAll('.fade-slide');
-    elements.forEach(el => {
+  function handleScrollAnimations(){
+    document.querySelectorAll('.fade-slide').forEach(el=>{
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) el.classList.add('visible');
+      if(rect.top < window.innerHeight - 50) el.classList.add('visible');
     });
   }
 
   window.addEventListener('scroll', handleScrollAnimations);
-  window.addEventListener('load', () => {
+  window.addEventListener('load', ()=>{
     loadProfile(); loadProducts(); loadCertificates(); handleScrollAnimations();
   });
 </script>
