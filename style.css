@@ -130,6 +130,6 @@ footer {
 
 /* For dark background sections, ensure text readability */
 .presence h2, .certifications h2 {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  color: #000; /* black text */
+  text-shadow: none; /* remove shadow for clean black text */
 }
