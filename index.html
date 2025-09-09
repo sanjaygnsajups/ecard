@@ -5,11 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>E-Card | The Modern Living</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -48,6 +47,8 @@
       overflow: hidden;
       white-space: nowrap;
       box-sizing: border-box;
+      background-color: #f8f9fa;
+      padding: 15px 0;
     }
 
     .ticker-track {
@@ -65,6 +66,18 @@
         transform: translateX(-100%);
       }
     }
+
+    .ticker img {
+      max-height: 120px;
+      margin: 0 40px;
+    }
+
+    body {
+      background-image: url('assets/bg-pattern.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
   </style>
 </head>
 
@@ -72,9 +85,9 @@
 
   <nav class="navbar navbar-expand-lg bg-light shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/logo.jpg" alt="Logo" style="height:40px; margin-right:10px;">
-        <strong>The Modern Living</strong>
+        <span class="fs-4 fw-bold">The Modern Living</span>
       </a>
     </div>
   </nav>
@@ -84,10 +97,9 @@
     <p>Hydrogen Water Generators</p>
   </div>
 
-  <div class="profile-card text-center p-3 mb-5 fade-in"
-    style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
-    id="profile">
-    <img id="profile-photo" src="images/default.jpg" alt="Profile Photo"
+  <div class="profile-card text-center p-3 mb-5 fade-in" id="profile"
+    style="max-width: 350px; margin: 0 auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img id="profile-photo" src="assets/default.jpg" alt="Profile Photo"
       class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;" />
     <h3 id="profile-name">Loading…</h3>
     <p id="profile-designation"></p>
@@ -104,32 +116,58 @@
     <div class="container">
       <h2 class="text-center mb-4">Our Products</h2>
       <div class="row justify-content-center" id="products-container">
+        <!-- Products loaded dynamically -->
       </div>
     </div>
   </section>
 
-  <section class="about-tml text-center my-5 fade-in">
-    <a href="#" onclick="showAbout()" class="btn btn-info">About The Modern Living</a>
+  <section class="about-tml my-5 fade-in text-center">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal" class="text-decoration-none">
+      Learn more about The Modern Living
+    </a>
   </section>
 
-  <section class="certificates my-5 fade-in">
-    <div class="container">
-      <h2 class="text-center mb-4">Accreditations & Certifications</h2>
-      <div class="owl-carousel owl-theme" id="certificates-carousel">
-      </div>
-    </div>
-  </section>
-
-  <section class="worldwide-presence my-5 fade-in">
-    <div class="container text-center">
-      <h2 class="mb-3">Worldwide Presence of Ion Exchange Limited</h2>
-      <div class="ticker">
-        <div class="ticker-track">
-          Indonesia • Malaysia • Nepal • Singapore • Thailand • Srilanka • East Africa • South Africa • Portugal • India
-          • Saudi Arabia • Oman • UAE • North America •
+  <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModalLabel">About The Modern Living</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-start">
+          TML is a Venture of Ion Exchange India Ltd.<br><br>
+          Ion Exchange India Ltd, a pioneer of water treatment in India with a legacy spanning over five decades is today a premier
+          company in water and environment management with a global presence. Formed in 1964, as a subsidiary of the Permutit
+          Company of UK, Ion Exchange became a wholly Indian company in 1985 when Permutit divested their holding.<br><br>
+          A leading solutions provider, one of very few companies worldwide with complete range of solutions for Water,
+          Wastewater Treatment, Solid Waste Management and Waste to Energy. Ion Exchange tech-driven products and services
+          cater to industries, institutions, municipalities, homes and communities both urban and rural.<br><br>
+          With sales, production and service footprints across the globe, Ion Exchange serves its markets with a sustained focus
+          on customer satisfaction, technological innovation and dedicated service.
         </div>
       </div>
-      <img src="assets/ion-exchange-logo.png" alt="Ion Exchange Logo" class="mt-3" style="max-height:50px;">
+    </div>
+  </div>
+
+  <section class="certifications my-5 fade-in">
+    <div class="container">
+      <h2 class="text-center mb-4">Accreditations & Certifications</h2>
+      <div class="ticker">
+        <div class="ticker-track" id="certificates-track">
+          <!-- Certificate images will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="presence my-5 fade-in">
+    <div class="container text-center">
+      <h2 class="mb-4">Worldwide Presence of Ion Exchange Limited</h2>
+      <div class="ticker">
+        <div class="ticker-track">
+          Indonesia • Malaysia • Nepal • Singapore • Thailand • Sri Lanka • East Africa • South Africa • Portugal • India • Saudi Arabia • Oman • UAE • North America
+        </div>
+      </div>
     </div>
   </section>
 
@@ -139,13 +177,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
   <script>
-    function showAbout() {
-      alert(`TML is a Venture of Ion Exchange India Ltd.\n\nIon Exchange India Ltd, a pioneer of water treatment in India with a legacy spanning over five decades is today a premier company in water and environment management with a global presence. Formed in 1964, as a subsidiary of the Permutit Company of UK, Ion Exchange became a wholly Indian company in 1985 when Permutit divested their holding.\n\nA leading solutions provider, one of very few companies worldwide with complete range of solutions for Water, Wastewater Treatment, Solid Waste Management and Waste to Energy. Ion Exchange tech-driven products and services cater to industries, institutions, municipalities, homes and communities both urban and rural.\n\nWith sales, production and service footprints across the globe, Ion Exchange serves its markets with a sustained focus on customer satisfaction, technological innovation and dedicated service.`);
-    }
-
     async function loadProfile() {
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id") || "sanjay";
@@ -165,7 +198,6 @@
         document.getElementById("profile-phone").textContent = "📞 " + member.phone;
         document.getElementById("profile-email").href = "mailto:" + member.email;
         document.getElementById("profile-email").textContent = "✉️ " + member.email;
-        window.whatsappNumber = member.whatsapp; // Set globally for products
       }
     }
 
@@ -186,10 +218,9 @@
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
               <a href="${product.brochure}" download class="btn btn-primary btn-sm m-1">Download Brochure</a>
-              <a href="https://wa.me/${window.whatsappNumber}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}" class="btn btn-success btn-sm m-1">Enquire Now</a>
+              <a href="https://wa.me/${product.whatsapp}" target="_blank" class="btn btn-success btn-sm m-1">Enquire Now</a>
             </div>
-          </div>
-        `;
+          </div>`;
         container.appendChild(col);
       }
     }
@@ -197,48 +228,22 @@
     async function loadCertificates() {
       const response = await fetch("certificates.json");
       const data = await response.json();
-      const container = document.getElementById("certificates-carousel");
+      const container = document.getElementById("certificates-track");
       container.innerHTML = "";
 
       for (const key in data) {
         const cert = data[key];
-        const div = document.createElement("div");
-        div.className = "item text-center p-2";
-        div.innerHTML = `<img src="${cert.image}" class="img-fluid rounded shadow" alt="${cert.name}" title="${cert.name}" style="max-height:150px;">`;
-        container.appendChild(div);
+        const img = document.createElement("img");
+        img.src = cert.image;
+        img.alt = cert.name;
+        img.title = cert.name;
+        container.appendChild(img);
       }
-
-      $("#certificates-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2500,
-        responsive: {
-          0: { items: 2 },
-          600: { items: 4 },
-          1000: { items: 6 }
-        }
-      });
     }
 
-    $(document).ready(() => {
-      loadProfile().then(() => {
-        loadProducts();
-      });
-      loadCertificates();
-
-      $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        responsive: {
-          0: { items: 2 },
-          600: { items: 4 },
-          1000: { items: 6 }
-        }
-      });
-    });
+    loadProfile();
+    loadProducts();
+    loadCertificates();
   </script>
 
 </body>
