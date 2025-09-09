@@ -45,7 +45,7 @@ body {
 .ticker {
   overflow: hidden;
   position: relative;
-  background: rgba(0, 0, 0, 0.9); /* Light semi-transparent for blending */
+  background: rgba(255, 255, 255, 0.2); /* Light semi-transparent for blending */
   padding: 10px 0;
   color: black; /* Ensure text is visible on dark background */
   font-size: 1.1rem;
