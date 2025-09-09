@@ -1,26 +1,26 @@
 {
   "cert1": {
     "name": "Indian Institute of Chemical Technology",
-    "image": "assets/Indian Institute of Chemical Technology.png"
+    "image": "assets/1. Indian Institute of Chemical Technology.png"
   },
   "cert2": {
     "name": "ISO",
-    "image": "assets/ISO.png"
+    "image": "assets/2.ISO.png"
   },
   "cert3": {
     "name": "Indian Institute of Science",
-    "image": "assets/Indian Institute of Science.png"
+    "image": "assets/3. Indian Institute of Science.png"
   },
   "cert4": {
     "name": "IAPMO",
-    "image": "assets/IAPMO.png"
+    "image": "assets/4.IAPMO.png"
   },
   "cert5": {
     "name": "IIT Bombay",
-    "image": "assets/IIT Bombay.png"
+    "image": "assets/5.IIT Bombay.png"
   },
   "cert6": {
     "name": "NCL",
-    "image": "assets/NCL.png"
+    "image": "assets/6.NCL.jpg"
   }
 }
