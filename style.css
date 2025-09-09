@@ -2,6 +2,8 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
 }
 
 /* Profile Card Hover Effect */
@@ -39,21 +41,22 @@ body {
   }
 }
 
-/* Horizontal ticker */
+/* Horizontal ticker - Worldwide Presence */
 .ticker {
   overflow: hidden;
   position: relative;
-  background: transparent; /* Make background transparent */
+  background: rgba(255, 255, 255, 0.2); /* Light semi-transparent for blending */
   padding: 10px 0;
-  color: #fff; /* Ensure text is visible on dark backgrounds */
-  font-size: 1.1rem; /* Slightly larger text for better readability */
-  font-weight: 500; /* Medium weight for emphasis */
+  color: #fff; /* Ensure text is visible on dark background */
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 8px;
 }
 
 .ticker-track {
   display: inline-block;
   white-space: nowrap;
-  animation: tickerMove 20s linear infinite;
+  animation: tickerMove 15s linear infinite; /* Slightly faster scrolling */
 }
 
 @keyframes tickerMove {
@@ -71,6 +74,11 @@ body {
   margin: auto;
 }
 
+/* Faster carousel autoplay */
+.owl-carousel .owl-stage {
+  transition: transform 0.8s linear !important;
+}
+
 /* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
@@ -84,4 +92,38 @@ body {
   0%,20%,50%,80%,100% { transform: translateY(0); }
   40% { transform: translateY(-10px); }
   60% { transform: translateY(-5px); }
+}
+
+/* Navbar Brand - slightly bigger logo */
+.navbar-brand img {
+  height: 60px; /* Slightly larger than before */
+  margin-right: 10px;
+}
+
+/* Optional - make the footer more elegant */
+footer {
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Certificates carousel container spacing */
+.certifications .owl-carousel {
+  margin-top: 20px;
+}
+
+/* Profile Card & Product Card general adjustments */
+.profile-card, .card {
+  border-radius: 12px;
+}
+
+/* Make ticker and certificates blend well with background */
+.ticker, .owl-carousel .item {
+  background: transparent;
+}
+
+/* For dark background sections, ensure text readability */
+.presence h2, .certifications h2 {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
