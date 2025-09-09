@@ -43,20 +43,26 @@ body {
 .ticker {
   overflow: hidden;
   position: relative;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent; /* Make background transparent */
   padding: 10px 0;
-  color: #fff;
+  color: #fff; /* Ensure text is visible on dark backgrounds */
+  font-size: 1.1rem; /* Slightly larger text for better readability */
+  font-weight: 500; /* Medium weight for emphasis */
 }
 
 .ticker-track {
   display: inline-block;
   white-space: nowrap;
-  animation: tickerMove 20s linear infinite; /* faster scroll */
+  animation: tickerMove 20s linear infinite;
 }
 
 @keyframes tickerMove {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* Certificates carousel */
