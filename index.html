@@ -59,13 +59,16 @@
       padding: 10px 0;
     }
 
-    .ticker-track {
-      display: inline-block;
-      white-space: nowrap;
-      animation: tickerMove 15s linear infinite;
-      font-weight: bold;
-      font-size: 1rem;
-    }
+    .ticker {
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);  /* semi-transparent dark */
+    padding: 10px 0;
+    color: #fff; /* make text visible on dark bg */
+}
+.ticker-track {
+    color: #fff; /* ensure scrolling text is readable */
+}
 
     @keyframes tickerMove {
       0% {
