@@ -45,7 +45,7 @@ body {
 .ticker {
   overflow: hidden;
   position: relative;
-  background: rgba(255, 255, 255, 0.2); /* Light semi-transparent for blending */
+  background: rgba(0, 0, 0, 0.9); /* Light semi-transparent for blending */
   padding: 10px 0;
   color: black; /* Ensure text is visible on dark background */
   font-size: 1.1rem;
@@ -69,14 +69,20 @@ body {
 }
 
 /* Certificates carousel */
+/* Certificates carousel (Accreditations & Certifications) */
+.certifications {
+  background: rgba(0,0,0,0.9); /* black background */
+  padding: 20px 0;
+}
+
+.certifications h2 {
+  color: #fff; /* title text color */
+  margin-bottom: 20px;
+}
+
 .owl-carousel .item img {
   max-height: 120px;
   margin: auto;
-}
-
-/* Faster carousel autoplay */
-.owl-carousel .owl-stage {
-  transition: transform 0.8s linear !important;
 }
 
 /* WhatsApp Floating Button */
