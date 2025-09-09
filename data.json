@@ -28,5 +28,15 @@
     "photo": "images/jutika.jpg",
     "machine": "Hydrogen Water Generator UTS",
     "location": "Mumbai, India"
+  },
+  "satabdi": {
+    "name": "Satabdi Dutta",
+    "designation": "District Sales Manager",
+    "company": "The Modern Living",
+    "phone": "+91 8582960752",
+    "email": "satabdi.dutta@ionexchange.co.in",
+    "photo": "images/satabdi.jpg",
+    "machine": "Hydrogen Water Generator UTS",
+    "location": "Culcutta, India"
   }
 }
